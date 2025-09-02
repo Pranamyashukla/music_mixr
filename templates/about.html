@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block title %}About - MIXR.ai — AI Music Mastering{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-6 pt-8 pb-16">
+  <!-- Hero Section -->
+  <div class="text-center mb-20 slide-up">
+    <div class="float inline-block mb-8">
+      <i class="fas fa-rocket text-white text-8xl text-glow"></i>
+    </div>
+
+    <h1 class="text-6xl md:text-8xl font-black text-white mb-6 text-glow">
+      <span class="gradient-text">Our</span><br>
+      Story
+    </h1>
+
+    <p class="text-2xl md:text-3xl text-white/90 max-w-4xl mx-auto mb-12 font-light leading-relaxed">
+      We’re a small team of music lovers and engineers making
+      <strong class="font-bold text-yellow-400">great-sounding masters</strong>
+      fast, simple, and affordable for everyone.
+    </p>
+  </div>
+
+  <!-- Mission Section -->
+  <div class="glass rounded-3xl p-12 mb-20 text-center">
+    <h2 class="text-4xl font-bold text-white mb-8 text-glow">Our Mission</h2>
+    <p class="text-xl text-white/90 max-w-4xl mx-auto leading-relaxed">
+      Help independent artists and small teams release music that sounds polished—without big budgets or complex tools.
+      If you have a song, you deserve a clean, loud, and balanced master.
+    </p>
+  </div>
+
+  <!-- Founder (single, with real <img>) -->
+  <div class="glass rounded-3xl p-8 mb-20">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
+      <!-- Photo -->
+      <div class="lg:col-span-2 flex justify-center">
+        <img
+          src="{{ url_for('static', filename='founder-pranamya.jpeg') }}"
+          alt="Pranamya Shukla — Founder, MIXR.ai"
+          class="w-64 h-64 rounded-full object-cover ring-8 ring-yellow-400/60 shadow-xl"
+          style="object-position:center 10%;"
+        />
+      </div>
+
+      <!-- Text -->
+      <div class="lg:col-span-3">
+        <h3 class="text-3xl font-bold text-white mb-2">Pranamya Shukla</h3>
+        <p class="text-yellow-400 mb-6 font-medium">Founder</p>
+        <p class="text-white/80 leading-relaxed">
+          “I go by the stage name Artemis and I am one of the most experimental and fearless producers in the underground DHH scene.
+          I started out crafting sounds in small, makeshift studios with nothing but headphones and an obsession for pushing boundaries.
+          Mixing and mastering always felt like a wall for independent artists, so I built MIXR.ai, a tool that makes the ‘last mile’ of a track effortless.
+          It’s about giving every artist that final 10% of polish without the stress, so the focus stays on creativity, not limitations.”
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Company Stats -->
+  <div class="glass rounded-3xl p-12 mb-20">
+    <h2 class="text-4xl font-bold text-white text-center mb-12 text-glow">Impact so far</h2>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="text-center">
+        <div class="text-4xl font-black text-yellow-400 mb-2">100+</div>
+        <div class="text-white font-medium mb-2">Tracks Mastered</div>
+        <div class="text-white/60 text-sm">Since 2025</div>
+      </div>
+      <div class="text-center">
+        <div class="text-4xl font-black text-yellow-400 mb-2">100+</div>
+        <div class="text-white font-medium mb-2">Active Artists</div>
+        <div class="text-white/60 text-sm">Across genres</div>
+      </div>
+      <div class="text-center">
+        <div class="text-4xl font-black text-yellow-400 mb-2">99.9%</div>
+        <div class="text-white font-medium mb-2">Uptime</div>
+        <div class="text-white/60 text-sm">Reliable hosting</div>
+      </div>
+      <div class="text-center">
+        <div class="text-4xl font-black text-yellow-400 mb-2">~10s</div>
+        <div class="text-white font-medium mb-2">Avg Processing</div>
+        <div class="text-white/60 text-sm">Typical per track</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Values -->
+  <div class="mb-20">
+    <h2 class="text-4xl font-bold text-white text-center mb-12 text-glow">Our Values</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="glass rounded-2xl p-8 text-center hover-lift">
+        <i class="fas fa-heart text-yellow-400 text-4xl mb-6"></i>
+        <h3 class="text-xl font-bold text-white mb-4">Artist-first</h3>
+        <p class="text-white/80">We listen, we iterate, and we keep the process simple.</p>
+      </div>
+
+      <div class="glass rounded-2xl p-8 text-center hover-lift">
+        <i class="fas fa-lightbulb text-yellow-400 text-4xl mb-6"></i>
+        <h3 class="text-xl font-bold text-white mb-4">Practical innovation</h3>
+        <p class="text-white/80">Smart tools that help you finish music—not slow you down.</p>
+      </div>
+
+      <div class="glass rounded-2xl p-8 text-center hover-lift">
+        <i class="fas fa-handshake text-yellow-400 text-4xl mb-6"></i>
+        <h3 class="text-xl font-bold text-white mb-4">Access for all</h3>
+        <p class="text-white/80">Great masters shouldn’t depend on where you live or what you own.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <div class="text-center">
+    <div class="glass rounded-3xl p-12 glow">
+      <h2 class="text-4xl font-bold text-white mb-6 text-glow">Try MIXR.ai on your next track</h2>
+      <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+        Drag, drop, and hear the difference in seconds. No studio required.
+      </p>
+      <a href="/" class="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-black px-12 py-6 rounded-2xl hover:from-yellow-500 hover:via-orange-600 hover:to-red-600 transition-all duration-300 font-black text-xl shadow-2xl transform hover:scale-105 glow inline-block">
+        <i class="fas fa-rocket mr-3"></i>Start with MIXR.ai
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}
