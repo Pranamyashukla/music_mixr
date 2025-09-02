@@ -18,7 +18,7 @@ pyloudnorm==0.1.1
 imageio-ffmpeg==0.4.9   # app auto-locates ffmpeg via this
 
 # Optional — faster resampling (your code falls back if missing)
-soxr==0.3.7
+soxr>=0.3.7
 
 # Optional — reference-based mastering support
 # (Only needed if you plan to use the "reference" upload feature)
