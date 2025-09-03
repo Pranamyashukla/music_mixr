@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{% block title %}MIXR.ai{% endblock %}</title>
-  <meta name="description" content="{% block description %}MIXR.ai transforms your music with cutting-edge AI mastering. Fast, simple, and studio-quality results for everyone.{% endblock %}">
+  <title>{% block title %}MIXR.ai – Revolutionary AI Music Mastering{% endblock %}</title>
+  <meta name="description" content="{% block description %}Transform your music with cutting-edge AI mastering. Fast, simple, and studio-quality results for everyone.{% endblock %}">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -27,53 +27,7 @@
     .text-glow { text-shadow: 0 0 30px rgba(255,255,255,.3); }
     .pulse-glow { animation: pulse-glow 2s ease-in-out infinite alternate; }
     @keyframes pulse-glow { from { box-shadow: 0 0 20px rgba(124,58,237,.3); } to { box-shadow: 0 0 60px rgba(124,58,237,.6); } }
-    body.gradient-bg::after {
-      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1;
-      background:
-        radial-gradient(120% 80% at 50% 10%, transparent 0%, rgba(0,0,0,.12) 60%),
-        radial-gradient(160% 120% at 50% 120%, rgba(0,0,0,.25), transparent 60%);
-    }
-    .rg { position: relative; }
-    .rg .rg-layer {
-      pointer-events: none; position: absolute; inset: -2px; border-radius: inherit;
-      background:
-        radial-gradient(120px 120px at var(--rg-x, -50%) var(--rg-y, -50%), rgba(251,191,36,.35), transparent 60%),
-        radial-gradient(220px 220px at var(--rg-x, -50%) var(--rg-y, -50%), rgba(99,102,241,.20), transparent 65%);
-      filter: blur(18px); opacity: 0; transition: opacity .25s ease; mix-blend-mode: screen; z-index: 0;
-    }
-    .rg:hover .rg-layer { opacity: 1; }
-    .rg > * { position: relative; z-index: 1; }
-    @media (prefers-reduced-motion: reduce) { .rg .rg-layer { transition: none; } }
   </style>
-
-  <!-- Always show MIXR.ai as the tab title during load and page transitions -->
-  <script>
-    (function(){
-      let originalTitle = document.title;
-
-      function setLoadingTitle(){ document.title = 'MIXR.ai'; }
-      function restoreTitle(){ document.title = originalTitle; }
-
-      setLoadingTitle();
-      window.addEventListener('load', restoreTitle);
-      window.addEventListener('beforeunload', setLoadingTitle);
-      document.addEventListener('visibilitychange', function(){
-        if (document.visibilityState === 'hidden') setLoadingTitle();
-      });
-      document.addEventListener('click', function(e){
-        const a = e.target.closest('a[href]');
-        if (!a) return;
-        const url = new URL(a.href, window.location.origin);
-        if (url.origin === window.location.origin && !a.target && !a.hasAttribute('download')) {
-          setLoadingTitle();
-        }
-      });
-      window.addEventListener('pageshow', function(ev){
-        originalTitle = document.title;
-        if (ev.persisted) restoreTitle();
-      });
-    })();
-  </script>
 </head>
 <body class="gradient-bg min-h-screen overflow-x-hidden">
   {% set on_dashboard = request.path.startswith('/dashboard') %}
@@ -89,6 +43,7 @@
           </div>
           <div>
             <a href="/" class="text-white font-black text-3xl gradient-text hover:opacity-80 transition-opacity">MIXR.AI</a>
+            <div class="text-white/60 text-sm font-medium">Revolutionary Mastering</div>
           </div>
         </div>
 
@@ -120,12 +75,10 @@
       <a href="/testimonials" class="text-white text-2xl font-medium hover:text-yellow-400 transition-colors">Success Stories</a>
       <a href="/about" class="text-white text-2xl font-medium hover:text-yellow-400 transition-colors">About</a>
       <a href="/contact" class="text-white text-2xl font-medium hover:text-yellow-400 transition-colors">Contact</a>
-
       <a href="/dashboard"
          class="{% if on_dashboard %}bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-8 py-4 rounded-xl font-bold{% else %}text-white text-2xl font-medium hover:text-yellow-400 transition-colors{% endif %}">
         Dashboard
       </a>
-
       <button class="text-white text-3xl" onclick="toggleMobileMenu()"><i class="fas fa-times"></i></button>
     </div>
   </div>
@@ -139,12 +92,15 @@
   <footer class="glass border-t border-white/10 mt-32">
     <div class="container mx-auto px-6 py-16">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <!-- Brand -->
         <div>
           <div class="flex items-center space-x-3 mb-6">
             <i class="fas fa-waveform-lines text-yellow-400 text-2xl"></i>
             <span class="text-white font-black text-xl gradient-text">MIXR.AI</span>
           </div>
-          <p class="text-white/70 mb-6">AI music mastering that makes your tracks clean, loud, and ready to share.</p>
+          <p class="text-white/70 mb-6">
+            AI music mastering that makes your tracks clean, loud, and ready to share.
+          </p>
           <div class="flex space-x-4">
             <a href="#" class="text-white/60 hover:text-yellow-400 transition-colors"><i class="fab fa-instagram text-xl"></i></a>
             <a href="#" class="text-white/60 hover:text-yellow-400 transition-colors"><i class="fab fa-youtube text-xl"></i></a>
@@ -152,21 +108,29 @@
           </div>
         </div>
 
+        <!-- Navigate -->
         <div>
           <h4 class="text-white font-bold text-lg mb-6">Navigate</h4>
           <ul class="space-y-3">
             <li><a href="/features" class="text-white/70 hover:text-yellow-400 transition-colors">Features</a></li>
-            <li><a href="#" class="text-white/70 hover:text-yellow-400 transition-colors">Integrations</a></li>
+            <li><a href="/integrations" class="text-white/70 hover:text-yellow-400 transition-colors">Integrations</a></li>
             <li><a href="/about" class="text-white/70 hover:text-yellow-400 transition-colors">About</a></li>
           </ul>
         </div>
 
+        <!-- Support -->
         <div>
           <h4 class="text-white font-bold text-lg mb-6">Support</h4>
           <ul class="space-y-3">
             <li><a href="/contact" class="text-white/70 hover:text-yellow-400 transition-colors">Contact</a></li>
-            <li><a href="mailto:pranamyashukla08@gmail.com" class="text-white/70 hover:text-yellow-400 transition-colors">Help Centre</a></li>
-            <li><a href="#" class="text-white/70 hover:text-yellow-400 transition-colors">Community</a></li>
+            <li>
+              <a href="mailto:pranamyashukla08@gmail.com"
+                 class="text-white/70 hover:text-yellow-400 transition-colors"
+                 title="Email: pranamyashukla08@gmail.com">
+                Help Centre
+              </a>
+            </li>
+            <li><a href="/community" class="text-white/70 hover:text-yellow-400 transition-colors">Community</a></li>
           </ul>
         </div>
       </div>
@@ -175,48 +139,21 @@
         <div class="flex flex-col md:flex-row justify-between items-center">
           <div class="text-white/60 text-sm mb-4 md:mb-0">© 2025 MIXR.AI. All rights reserved.</div>
           <div class="flex space-x-6 text-sm">
-            <a href="#" class="text-white/60 hover:text-yellow-400 transition-colors">Privacy Policy</a>
-            <a href="#" class="text-white/60 hover:text-yellow-400 transition-colors">Terms of Service</a>
-            <a href="#" class="text-white/60 hover:text-yellow-400 transition-colors">Cookie Policy</a>
+            <a href="/privacy" class="text-white/60 hover:text-yellow-400 transition-colors">Privacy Policy</a>
+            <a href="/terms" class="text-white/60 hover:text-yellow-400 transition-colors">Terms of Service</a>
+            <a href="/cookies" class="text-white/60 hover:text-yellow-400 transition-colors">Cookie Policy</a>
           </div>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- JS -->
   <script>
     function toggleMobileMenu() {
       var el = document.getElementById('mobile-menu');
       if (el) el.classList.toggle('hidden');
     }
-    (function reactiveGlow(){
-      var targets = document.querySelectorAll(
-        '.btn-world-class, .btn-premium, .card-world-class, .glass, .pricing-world-class, .stat-world-class'
-      );
-      if (!targets.length) return;
-      targets.forEach(function(el){
-        if (el.classList.contains('rg')) return;
-        el.classList.add('rg');
-        var layer = document.createElement('span');
-        layer.className = 'rg-layer';
-        el.appendChild(layer);
-        var raf = null;
-        function onMove(e){
-          var rect = el.getBoundingClientRect();
-          var x = e.clientX - rect.left;
-          var y = e.clientY - rect.top;
-          if (raf) cancelAnimationFrame(raf);
-          raf = requestAnimationFrame(function(){
-            el.style.setProperty('--rg-x', x + 'px');
-            el.style.setProperty('--rg-y', y + 'px');
-          });
-        }
-        el.addEventListener('mousemove', onMove, { passive: true });
-      });
-    })();
   </script>
-
   <script src="/static/js/enhanced-ui.js"></script>
   <script src="/static/js/world-class-effects.js"></script>
   <script src="/static/js/professional-animations.js"></script>
