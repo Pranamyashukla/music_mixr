@@ -63,7 +63,6 @@ MIXR.ai is a web-based AI-powered music mastering tool designed for independent 
 - `Static_1/` – Static assets (CSS, JS, images)
 - `templates/` – HTML templates (Jinja2)
 - `requirements.txt` – Python dependencies
-- `render.yaml` – Render.com deployment config
 
 ## Demo
 
@@ -74,10 +73,7 @@ Visit [http://localhost:5000](http://localhost:5000) after running locally, or s
 - Use the contact form on `/contact` page.
 - Email: pranamyashukla08@gmail.com
 
-## License
-
-MIT License (or specify your license)
-
 ---
+
 
 *For more details, see the [API Documentation](templates/api.html) and explore the features on the [Features page](templates/features.html).*
